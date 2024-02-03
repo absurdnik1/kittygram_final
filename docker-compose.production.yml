@@ -23,12 +23,12 @@ services:
     env_file: .env
     command: cp -r /app/build/. /static/
     volumes:
-      - static:/frontend_static
+      - static:/static
   gateway:
     image: absurdnik/kittygram_gateway  # Качаем с Docker Hub
     env_file: .env
     volumes:
-      - static:/static/
+      - static:/static
       - media:/media/
     ports:
       - 9000:80 
