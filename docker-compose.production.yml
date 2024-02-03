@@ -18,6 +18,8 @@ services:
     volumes:
       - static:/backend_static
       - media:/app/media/
+    depends_on:
+      - db
   frontend:
     image: absurdnik/kittygram_frontend  # Качаем с Docker Hub
     env_file: .env
