@@ -18,8 +18,6 @@ services:
     volumes:
       - static:/backend_static
       - media:/app/media/
-    depends_on:
-      - db
   frontend:
     image: absurdnik/kittygram_frontend  # Качаем с Docker Hub
     env_file: .env
@@ -29,8 +27,8 @@ services:
   gateway:
     image: absurdnik/kittygram_gateway  # Качаем с Docker Hub
     env_file: .env
+    ports:
+      - 9000:80
     volumes:
       - static:/static/
       - media:/app/media/
-    ports:
-      - 9000:80 
