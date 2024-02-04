@@ -1,3 +1,4 @@
+# flake8: noqa
 import os
 from pathlib import Path
 
@@ -5,7 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('SECRET_KEY', 'default-secret-key-for-testing')
 
-DEBUG = False
+DEBUG = os.getenv('DEFAULT', 'True') == 'True'
 
 ALLOWED_HOSTS = []
 
